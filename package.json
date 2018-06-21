@@ -1,16 +1,19 @@
 {
-  "name": "angular-electron",
+  "name": "angmatron-forge",
   "version": "4.0.0",
-  "description": "Angular 6 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
+  "description": "Angular + Material + Electron + Forge (Supports: Typescript, SASS & Hot Reload)",
+  "homepage": "https://github.com/1nv1n/angular-electron.git",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "1nv1n",
+    "email": ""
   },
   "keywords": [
     "angular",
     "angular 6",
+    "angular material",
     "electron",
+    "electron forge",
+    "material",
     "typescript",
     "sass"
   ],
@@ -23,7 +26,8 @@
     "build": "npm run electron:tsc && ng build",
     "build:dev": "npm run build -- -c dev",
     "build:prod": "npm run build -- -c production",
-    "ng:serve": "ng serve -o",
+    "ng:serve": "ng serve",
+    "ng:serve-open": "ng serve -o",
     "electron:tsc": "tsc main.ts",
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:tsc && electron . --serve",
     "electron:local": "npm run build:prod && electron .",
@@ -32,6 +36,38 @@
     "electron:mac": "npm run build:prod && npx electron-builder build --mac",
     "test": "ng test",
     "e2e": "ng e2e"
+  },
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "packageManager": "yarn"
+      },
+      "electronWinstallerConfig": {
+        "name": "angmatron-forge"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "angmatron-forge"
+      }
+    }
   },
   "dependencies": {},
   "devDependencies": {
