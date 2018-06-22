@@ -1,15 +1,15 @@
 import { AngularElectronPage } from './app.po';
 import { browser, element, by } from 'protractor';
 
-describe('angular-electron App', () => {
+describe('angular-material-electron App', () => {
   let page: AngularElectronPage;
 
   beforeEach(() => {
     page = new AngularElectronPage();
   });
 
-  it('should display message saying App works !', () => {
+  it('should display App title on toolbar', () => {
     page.navigateTo('/');
-    expect(element(by.css('app-home h1')).getText()).toMatch('App works !');
+    expect(element(by.css('app-title')).getText()).toMatch('Angular Material Electron Forge');
   });
 });

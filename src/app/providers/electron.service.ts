@@ -21,7 +21,6 @@ export class ElectronService {
       this.ipcRenderer = window.require('electron').ipcRenderer;
       this.webFrame = window.require('electron').webFrame;
       this.remote = window.require('electron').remote;
-
       this.childProcess = window.require('child_process');
       this.fs = window.require('fs');
     }
@@ -30,5 +29,4 @@ export class ElectronService {
   isElectron = () => {
     return window && window.process && window.process.type;
   }
-
 }

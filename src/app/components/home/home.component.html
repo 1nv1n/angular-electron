@@ -1,5 +1,30 @@
+<div class="app-toolbar">
+  <mat-toolbar color="primary">
+    <span class="app-title">Angular Material Electron Forge</span>
+    <span class="expand-on-toolbar"></span>
+    <span>
+      <button mat-icon-button [mat-menu-trigger-for]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </span>
+  </mat-toolbar>
+
+  <mat-menu x-position="after" #menu="matMenu">
+    <button mat-menu-item>Option</button>
+  </mat-menu>
+</div>
+
 <div class="container">
-  <h1 class="title">
-    {{ 'PAGES.HOME.TITLE' | translate }}
-  </h1>
+  <mat-card>
+    <button mat-button>Button</button>
+    <button mat-raised-button>Raised</button>
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+  </mat-card>
+
+  <span class="checkCircleFab">
+    <button mat-fab>
+      <mat-icon>check circle</mat-icon>
+    </button>
+  </span>
 </div>
