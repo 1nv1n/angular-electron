@@ -50,7 +50,7 @@ The Angular component contains an example of Electron and NodeJS native lib impo
 |Command|Description|
 |--|--|
 |`npm start`| Builds & starts the Electron App. |
-|`npm run ng:serve-open`| Run the app in the browser (No Electron/NodeJS native libraries & no hot reload). |
+|`npm run ng:serve:web`| Run the app in the browser (No Electron/NodeJS native libraries & no hot reload). |
 |`npm run build`| Build the app (built files will be in the /dist folder). |
 |`npm run build:dev`| Build the app with Angular AoT for development. |
 |`npm run build:prod`| Build the app with Angular AoT (built files will be in the /dist folder). |
