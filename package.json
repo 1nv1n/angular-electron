@@ -1,8 +1,8 @@
 {
-  "name": "angmatron-forge",
+  "name": "angular-material-electron",
   "version": "4.0.0",
-  "description": "Angular + Material + Electron + Forge (Supports: Typescript, SASS & Hot Reload)",
-  "homepage": "https://github.com/1nv1n/angular-electron.git",
+  "description": "Angular + Material + Electron (Typescript, SASS, Hot Reload & Builder)",
+  "homepage": "https://github.com/1nv1n/angular-material-electron.git",
   "author": {
     "name": "1nv1n",
     "email": ""
@@ -12,7 +12,7 @@
     "angular 6",
     "angular material",
     "electron",
-    "electron forge",
+    "electron builder",
     "material",
     "typescript",
     "sass"
@@ -20,7 +20,7 @@
   "main": "main.js",
   "private": true,
   "scripts": {
-    "postinstall": "npx electron-builder install-app-deps && node postinstall",
+    "postinstall": "npx electron-builder install-app-deps",
     "ng": "ng",
     "start": "npm-run-all -p ng:serve electron:serve",
     "build": "npm run electron:tsc && ng build",
@@ -35,44 +35,13 @@
     "electron:windows": "npm run build:prod && npx electron-builder build --windows",
     "electron:mac": "npm run build:prod && npx electron-builder build --mac",
     "test": "ng test",
-    "e2e": "ng e2e"
-  },
-  "config": {
-    "forge": {
-      "make_targets": {
-        "win32": [
-          "squirrel"
-        ],
-        "darwin": [
-          "zip"
-        ],
-        "linux": [
-          "deb",
-          "rpm"
-        ]
-      },
-      "electronPackagerConfig": {
-        "packageManager": "yarn"
-      },
-      "electronWinstallerConfig": {
-        "name": "angmatron-forge"
-      },
-      "electronInstallerDebian": {},
-      "electronInstallerRedhat": {},
-      "github_repository": {
-        "owner": "",
-        "name": ""
-      },
-      "windowsStoreConfig": {
-        "packageName": "",
-        "name": "angmatron-forge"
-      }
-    }
+    "e2e": "ng e2e",
+    "lint": "tslint -c ./tslint.json \"./src/**/*.ts\" -e \"./src/**/typings.d.ts\" -e \"./src/environments/**\""
   },
   "dependencies": {
     "@angular/animations": "6.0.6",
-    "@angular/cdk": "6.3.0",
-    "@angular/material": "6.3.0",
+    "@angular/cdk": "6.3.1",
+    "@angular/material": "6.3.1",
     "hammerjs": "2.0.8"
   },
   "devDependencies": {
@@ -92,12 +61,12 @@
     "@ngx-translate/http-loader": "3.0.1",
     "@types/jasmine": "2.8.8",
     "@types/jasminewd2": "2.0.3",
-    "@types/node": "10.3.4",
-    "codelyzer": "4.3.0",
+    "@types/node": "10.5.0",
+    "codelyzer": "4.4.2",
     "core-js": "2.5.7",
     "electron": "2.0.3",
-    "electron-builder": "20.15.1",
-    "electron-reload": "1.2.2",
+    "electron-builder": "20.17.0",
+    "electron-reload": "1.2.3",
     "jasmine-core": "3.1.0",
     "jasmine-spec-reporter": "4.2.1",
     "karma": "2.0.4",
@@ -109,7 +78,7 @@
     "npx": "10.2.0",
     "protractor": "5.3.2",
     "rxjs": "6.2.1",
-    "ts-node": "6.1.2",
+    "ts-node": "7.0.0",
     "tslint": "5.10.0",
     "typescript": "2.7.2",
     "wait-on": "2.1.0",

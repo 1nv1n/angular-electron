@@ -10,6 +10,6 @@ describe('angular-material-electron App', () => {
 
   it('should display App title on toolbar', () => {
     page.navigateTo('/');
-    expect(element(by.css('app-title')).getText()).toMatch('Angular Material Electron Forge');
+    expect(element(by.css('.app-title')).getText()).toMatch('PAGES.HOME.TITLE');
   });
 });

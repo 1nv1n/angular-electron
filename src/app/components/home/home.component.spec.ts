@@ -29,6 +29,6 @@ describe('HomeComponent', () => {
 
   it('should display App title on toolbar', async(() => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Angular Material Electron Forge');
+    expect(compiled.querySelector('.app-title').textContent).toContain('PAGES.HOME.TITLE');
   }));
 });

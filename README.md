@@ -9,7 +9,7 @@ A starter pack for creating desktop applications; built with Angular, Angular Ma
 - TypeScript 2.7.2
 - SASS
 - Hot Reload
-- Electron (with Forge)
+- Electron (with Builder)
 
 ## GETTING STARTED
 
@@ -28,8 +28,8 @@ Please use `npm` as dependencies manager.
 npm install
 ```
 
-If you want to generate Angular components with Angular-cli , you need to have installed `@angular/cli` in global context.
-Please follow [Angular-cli documentation](https://github.com/angular/angular-cli) if you had installed a previous version of `angular-cli`.
+If you want to generate Angular components with Angular-CLI , you need to have installed `@angular/cli` in global context.
+Please follow the [Angular-CLI documentation](https://github.com/angular/angular-cli) if you had installed a previous version of `angular-cli`.
 
 ``` bash
 npm install -g @angular/cli

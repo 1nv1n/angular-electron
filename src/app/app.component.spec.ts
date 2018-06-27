@@ -1,7 +1,9 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
 import { TranslateModule } from '@ngx-translate/core';
+
+import { AppComponent } from './app.component';
+import { MaterialModule } from './material.module';
 import { ElectronService } from './providers/electron.service';
 
 describe('AppComponent', () => {
@@ -14,6 +16,7 @@ describe('AppComponent', () => {
         ElectronService
       ],
       imports: [
+        MaterialModule,
         RouterTestingModule,
         TranslateModule.forRoot()
       ]
