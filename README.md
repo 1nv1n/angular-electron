@@ -4,13 +4,13 @@ A quick-start project for creating desktop applications; built with Angular, Mat
 
 <p align="center">
  <a href="https://angular.io/">
-  <img src="https://raw.githubusercontent.com/1nv1n/angular-material-electron/master/resources/logo/angular-logo.svg?sanitize=true" alt="Angular" height="100" width="100" />
+  <img src="https://raw.githubusercontent.com/1nv1n/angular-material-electron/master/src/assets/logo/angular-logo.svg?sanitize=true" alt="Angular" height="100" width="100" />
  </a>
  <a href="https://material.angular.io/">
-  <img src="https://raw.githubusercontent.com/1nv1n/angular-material-electron/master/resources/logo/material-logo.svg?sanitize=true" alt="Material" height="100" width="100" />
+  <img src="https://raw.githubusercontent.com/1nv1n/angular-material-electron/master/src/assets/logo/material-logo.svg?sanitize=true" alt="Material" height="100" width="100" />
  </a>
  <a href="https://electronjs.org/">
-  <img src="https://raw.githubusercontent.com/1nv1n/angular-material-electron/master/resources/logo/electron-logo.svg?sanitize=true" alt="ElectronJS" height="100" width="100" />
+  <img src="https://raw.githubusercontent.com/1nv1n/angular-material-electron/master/src/assets/logo/electron-logo.svg?sanitize=true" alt="ElectronJS" height="100" width="100" />
  </a>
 </p>
 
