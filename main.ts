@@ -1,30 +1,34 @@
-import { app, BrowserWindow, screen } from 'electron';
+import { app, BrowserWindow, globalShortcut, screen } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
-let win, serve;
+let serve;
+let mainWindow;
+
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
 
-function createWindow() {
+/**
+ * Creates the main window of the Electron application.
+ */
+function createMainWindow() {
   const electronScreen = screen;
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
 
   // Create the browser window.
-  win = new BrowserWindow({
-    x: 0,
-    y: 0,
+  mainWindow = new BrowserWindow({
     width: size.width,
-    height: size.height
+    height: size.height,
+    icon: path.join(__dirname, 'src/assets/favicon', 'favicon.ico')
   });
 
   if (serve) {
     require('electron-reload')(__dirname, {
       electron: require(`${__dirname}/node_modules/electron`)
     });
-    win.loadURL('http://localhost:1337');
+    mainWindow.loadURL('http://localhost:1337');
   } else {
-    win.loadURL(
+    mainWindow.loadURL(
       url.format({
         pathname: path.join(__dirname, 'dist/index.html'),
         protocol: 'file:',
@@ -33,14 +37,30 @@ function createWindow() {
     );
   }
 
-  win.webContents.openDevTools();
+  // Opens the Chrome Developer Tools (Docked to the App)
+  mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
-  win.on('closed', () => {
+  mainWindow.on('closed', () => {
     // Dereference the window object, usually you would store window
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
-    win = null;
+    mainWindow = null;
+  });
+}
+
+// Register Global Shortcut Commands
+function registerGlobalShortcuts() {
+  // Register the Debug (Ctrl+D) shortcut
+  globalShortcut.register('CommandOrControl+D', () => {
+    // Launch DevTools if it is not currently open, close it if it is open.
+    if (mainWindow.webContents.isDevToolsOpened()) {
+      mainWindow.webContents.closeDevTools();
+    } else {
+      mainWindow.webContents.openDevTools({
+        mode: 'detach'
+      });
+    }
   });
 }
 
@@ -48,7 +68,7 @@ try {
   // This method will be called when Electron has finished
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
-  app.on('ready', createWindow);
+  app.on('ready', createMainWindow);
 
   // Quit when all windows are closed.
   app.on('window-all-closed', () => {
@@ -62,11 +82,10 @@ try {
   app.on('activate', () => {
     // On OS X it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
-    if (win === null) {
-      createWindow();
+    if (process.platform === 'darwin' && mainWindow === null) {
+      createMainWindow();
     }
   });
-} catch (e) {
-  // Catch Error
-  // throw e;
+} catch (error) {
+  console.log('Error:', error);
 }
