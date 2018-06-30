@@ -9,17 +9,9 @@ import { ElectronService } from './providers/electron.service';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-      providers: [
-        ElectronService
-      ],
-      imports: [
-        MaterialModule,
-        RouterTestingModule,
-        TranslateModule.forRoot()
-      ]
+      declarations: [AppComponent],
+      providers: [ElectronService],
+      imports: [MaterialModule, RouterTestingModule, TranslateModule.forRoot()]
     }).compileComponents();
   }));
 
@@ -31,6 +23,5 @@ describe('AppComponent', () => {
 });
 
 class TranslateServiceStub {
-  setDefaultLang(lang: string): void {
-  }
+  setDefaultLang(lang: string): void {}
 }

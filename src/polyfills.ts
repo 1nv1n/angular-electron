@@ -48,7 +48,7 @@ import 'core-js/es7/reflect';
  **/
 // import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 
- /**
+/**
  * By default, zone.js will patch all possible macroTask and DomEvents
  * user can disable parts of macroTask/DomEvents patch by setting following flags
  */
@@ -65,7 +65,7 @@ import 'core-js/es7/reflect';
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-import 'zone.js/dist/zone-mix';  // Included with Angular CLI.
+import 'zone.js/dist/zone-mix'; // Included with Angular CLI.
 
 /**
  * You can load zone-patch-electron to allow electron native APIs
