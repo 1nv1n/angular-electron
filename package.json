@@ -4,8 +4,7 @@
   "description": "Angular + Material + Electron (Typescript, SASS, Hot Reload & Builder)",
   "homepage": "https://github.com/1nv1n/angular-material-electron.git",
   "author": {
-    "name": "1nv1n",
-    "email": ""
+    "name": "1nv1n"
   },
   "keywords": [
     "angular",
