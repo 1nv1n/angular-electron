@@ -17,11 +17,11 @@ A quick-start project for creating desktop applications; built with Angular, Mat
 ## Features
 
 - Angular 6+ (with CLI)
-- Angular Material
+- Angular Material 6+
+- Electron (with Builder)
 - TypeScript 2.7.2
 - SASS
 - Hot Reload
-- Electron (with Builder)
 
 ## Getting Started
 
@@ -72,7 +72,7 @@ The Angular component contains an example of Electron and NodeJS native lib impo
 | `npm run test`             | Runs `ng test`.                                                                          |
 | `npm run e2e`              | Runs `ng e2e`.                                                                           |
 
-**Your application is optimised. Only the /dist folder and node dependencies are included in the executable.**
+**Your application is optimised. Only the `/dist` folder and `node` dependencies are included in the executable.**
 
 ## Troubleshooting
 
