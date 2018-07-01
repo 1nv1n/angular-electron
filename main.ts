@@ -1,4 +1,4 @@
-import { app, BrowserWindow, globalShortcut, screen } from 'electron';
+import { app, BrowserWindow, globalShortcut, ipcMain, screen } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
@@ -19,7 +19,8 @@ function createMainWindow() {
   mainWindow = new BrowserWindow({
     width: size.width,
     height: size.height,
-    icon: path.join(__dirname, 'src/assets/favicon', 'favicon.ico')
+    icon: path.join(__dirname, 'src/assets/favicon', 'favicon.ico'),
+    frame: false
   });
 
   if (serve) {
@@ -37,8 +38,10 @@ function createMainWindow() {
     );
   }
 
-  // Opens the Chrome Developer Tools (Docked to the App)
-  mainWindow.webContents.openDevTools();
+  // Opens the Chrome Developer Tools
+  mainWindow.webContents.openDevTools({
+    mode: 'detach'
+  });
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
@@ -89,3 +92,23 @@ try {
 } catch (error) {
   console.log('Error:', error);
 }
+
+ipcMain.on('app-minimize', arg => {
+  console.log('Minimizing App');
+  mainWindow.minimize();
+});
+
+ipcMain.on('app-maximize', arg => {
+  if (mainWindow.isMaximized()) {
+    console.log('Restoring App');
+    mainWindow.unmaximize();
+  } else {
+    console.log('Maximizing App');
+    mainWindow.maximize();
+  }
+});
+
+ipcMain.on('app-close', arg => {
+  console.log('Closing App');
+  app.quit();
+});
