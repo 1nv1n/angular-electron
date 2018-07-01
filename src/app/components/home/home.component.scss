@@ -1,7 +1,5 @@
-mat-card {
-  max-width: 80%;
-  margin: 2em auto;
-  text-align: center;
+.expand-on-toolbar {
+  flex: 1 1 auto;
 }
 
 mat-toolbar-row {
@@ -9,18 +7,11 @@ mat-toolbar-row {
 }
 
 .container {
-  display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
-.expand-on-toolbar {
-  flex: 1 1 auto;
-}
-
-.checkCircleFab {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  color: white;
+.theme-option {
+  text-align: center;
 }

@@ -1,30 +1,50 @@
-<div class="app-toolbar">
-  <mat-toolbar color="primary">
-    <span class="app-title">{{ 'PAGES.HOME.TITLE' | translate }}</span>
-    <span class="expand-on-toolbar"></span>
-    <span>
-      <button mat-icon-button [mat-menu-trigger-for]="menu">
-        <mat-icon>more_vert</mat-icon>
+<div class="mat-app-background">
+  <div class="app-toolbar">
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
       </button>
-    </span>
-  </mat-toolbar>
+      <span class="app-title">{{ 'PAGES.HOME.TITLE' | translate }}</span>
+      <span class="expand-on-toolbar"></span>
+      <span>
+        <button mat-icon-button [mat-menu-trigger-for]="menu">
+          <mat-icon>color_lens</mat-icon>
+        </button>
+        <button mat-icon-button (click)="minimizeApp()">
+          <mat-icon>remove</mat-icon>
+        </button>
+        <button mat-icon-button (click)="maximizeApp()">
+          <mat-icon>crop_square</mat-icon>
+        </button>
+        <button mat-icon-button (click)="closeApp()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </span>
+    </mat-toolbar>
 
-  <mat-menu x-position="after" #menu="matMenu">
-    <button mat-menu-item>Option</button>
-  </mat-menu>
-</div>
-
-<div class="container">
-  <mat-card>
-    <button mat-button>Button</button>
-    <button mat-raised-button>Raised</button>
-    <button mat-raised-button color="primary">Primary</button>
-    <button mat-raised-button color="accent">Accent</button>
-  </mat-card>
-
-  <span class="checkCircleFab">
-    <button mat-fab>
-      <mat-icon>check circle</mat-icon>
-    </button>
-  </span>
+    <mat-menu x-position="after" #menu="matMenu">
+      <button mat-menu-item (click)="onSetTheme('default-theme')" class="theme-option">Default</button>
+      <button mat-menu-item (click)="onSetTheme('dark-theme')" class="theme-option">Dark</button>
+      <button mat-menu-item (click)="onSetTheme('light-theme')" class="theme-option">Light</button>
+    </mat-menu>
+  </div>
+  <mat-sidenav-container class="container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+      <div class="app-side-nav" color="primary">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div>
+        <mat-card>
+          <button mat-button>Button</button>
+          <button mat-raised-button>Raised</button>
+          <button mat-raised-button color="primary">Primary</button>
+          <button mat-raised-button color="accent">Accent</button>
+        </mat-card>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
