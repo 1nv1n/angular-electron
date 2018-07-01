@@ -24,7 +24,7 @@
               "src/assets/favicon/favicon.256x256.png",
               "src/assets/favicon/favicon.512x512.png"
             ],
-            "styles": ["src/styles.scss"],
+            "styles": ["src/styles.scss", "src/theme.scss"],
             "scripts": []
           },
           "configurations": {
