@@ -50,6 +50,7 @@ function createMainWindow() {
     // when you should delete the corresponding element.
     mainWindow = null;
   });
+
 }
 
 // Register Global Shortcut Commands
