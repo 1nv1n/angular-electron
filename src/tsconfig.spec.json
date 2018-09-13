@@ -16,7 +16,6 @@
   "exclude": [
     "dist",
     "release",
-    "app-builds",
     "node_modules"
   ]
 }
