@@ -6,5 +6,7 @@
     "baseUrl": "",
     "types": []
   },
-  "exclude": ["src/test.ts", "**/*.spec.ts", "dist", "app-builds", "node_modules"]
+  "exclude": [
+    "**/*.spec.ts"
+  ]
 }

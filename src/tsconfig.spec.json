@@ -5,7 +5,18 @@
     "module": "commonjs",
     "types": ["jasmine", "node"]
   },
-  "files": ["test.ts", "polyfills-test.ts"],
-  "include": ["**/*.spec.ts", "**/*.d.ts"],
-  "exclude": ["dist", "app-builds", "node_modules"]
+  "files": [
+    "test.ts",
+    "polyfills-test.ts"
+  ],
+  "include": [
+    "**/*.spec.ts",
+    "**/*.d.ts"
+  ],
+  "exclude": [
+    "dist",
+    "release",
+    "app-builds",
+    "node_modules"
+  ]
 }
