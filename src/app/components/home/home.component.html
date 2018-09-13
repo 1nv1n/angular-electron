@@ -1,50 +1,51 @@
-<div class="mat-app-background">
-  <div class="app-toolbar">
-    <mat-toolbar color="primary">
-      <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span class="app-title">{{ 'PAGES.HOME.TITLE' | translate }}</span>
-      <span class="expand-on-toolbar"></span>
-      <span>
-        <button mat-icon-button [mat-menu-trigger-for]="menu">
-          <mat-icon>color_lens</mat-icon>
-        </button>
-        <button mat-icon-button (click)="minimizeApp()">
-          <mat-icon>remove</mat-icon>
-        </button>
-        <button mat-icon-button (click)="maximizeApp()">
-          <mat-icon>crop_square</mat-icon>
-        </button>
-        <button mat-icon-button (click)="closeApp()">
-          <mat-icon>close</mat-icon>
-        </button>
-      </span>
-    </mat-toolbar>
+<!-- App Toolbar, fixed to the top -->
+<mat-toolbar class="app-header" color="primary">
+  <button mat-icon-button (click)="drawer.toggle()" matTooltip="Expand the side bar">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="app-title">{{ 'PAGES.HOME.TITLE' | translate }}</span>
+  <span class="expand-on-toolbar"></span>
+  <span>
+    <button mat-icon-button [mat-menu-trigger-for]="menu" matTooltip="Change the theme">
+      <mat-icon>color_lens</mat-icon>
+    </button>
+    <button mat-icon-button (click)="minimizeApp()" matTooltip="Minimize">
+      <mat-icon>remove</mat-icon>
+    </button>
+    <button mat-icon-button (click)="maximizeApp()" matTooltip="Maximize">
+      <mat-icon>crop_square</mat-icon>
+    </button>
+    <button mat-icon-button (click)="closeApp()" matTooltip="Quit">
+      <mat-icon>close</mat-icon>
+    </button>
+  </span>
+</mat-toolbar>
 
-    <mat-menu x-position="after" #menu="matMenu">
-      <button mat-menu-item (click)="onSetTheme('default-theme')" class="theme-option">Default</button>
-      <button mat-menu-item (click)="onSetTheme('dark-theme')" class="theme-option">Dark</button>
-      <button mat-menu-item (click)="onSetTheme('light-theme')" class="theme-option">Light</button>
-    </mat-menu>
+<!-- Style Menu Options  -->
+<mat-menu x-position="after" #menu="matMenu">
+  <button mat-menu-item (click)="onSetTheme('default-theme')" class="theme-option">Default</button>
+  <button mat-menu-item (click)="onSetTheme('dark-theme')" class="theme-option">Dark</button>
+  <button mat-menu-item (click)="onSetTheme('light-theme')" class="theme-option">Light</button>
+  <button mat-menu-item (click)="onSetTheme('teal-theme')" class="theme-option">Teal</button>
+</mat-menu>
+
+<!-- Page Content -->
+<mat-drawer-container class="app-container" autosize>
+  <mat-drawer #drawer class="app-sidenav" mode="side">
+    <button mat-raised-button color="primary" (click)="drawer.toggle()">Settings</button>
+    <button mat-raised-button color="warn" (click)="drawer.toggle()">Close</button>
+  </mat-drawer>
+
+  <div class="app-sidenav-content">
+    <mat-card>
+      <button mat-raised-button color="primary">Primary</button>
+      <button mat-raised-button color="accent">Accent</button>
+      <button mat-raised-button color="warn">Warn</button>
+    </mat-card>
   </div>
-  <mat-sidenav-container class="container">
-    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
-      <div class="app-side-nav" color="primary">
-        <button mat-icon-button (click)="sidenav.toggle()">
-          <mat-icon>close</mat-icon>
-        </button>
-      </div>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <div>
-        <mat-card>
-          <button mat-button>Button</button>
-          <button mat-raised-button>Raised</button>
-          <button mat-raised-button color="primary">Primary</button>
-          <button mat-raised-button color="accent">Accent</button>
-        </mat-card>
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
+</mat-drawer-container>
+
+<!-- App footer, fixed to the bottom. -->
+<mat-toolbar class="app-footer" color="primary">
+  <p class="footer-text">© Angular Material Electron.</p>
+</mat-toolbar>

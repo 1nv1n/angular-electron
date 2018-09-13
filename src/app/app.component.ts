@@ -15,6 +15,7 @@ export class AppComponent {
 
     if (electronService.isElectron()) {
       console.log('Mode: Electron');
+      electronService.ipcRenderer.send('app-launched', 'an-argument');
     } else {
       console.log('Mode: Web');
     }

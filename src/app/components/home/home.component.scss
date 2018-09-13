@@ -1,3 +1,15 @@
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  -webkit-app-region: drag;
+}
+
+button {
+  -webkit-app-region: no-drag;
+}
+
 .expand-on-toolbar {
   flex: 1 1 auto;
 }
@@ -6,12 +18,40 @@ mat-toolbar-row {
   justify-content: space-between;
 }
 
-.container {
-  align-items: center;
-  justify-content: center;
+.theme-option {
   text-align: center;
 }
 
-.theme-option {
+.app-container {
+  position: absolute;
+  top: 60px;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+}
+
+.app-sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+}
+
+.app-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.footer-text {
+  flex: 1 1 auto;
   text-align: center;
 }

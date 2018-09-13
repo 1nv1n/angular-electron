@@ -93,12 +93,12 @@ try {
   console.log('Error:', error);
 }
 
-ipcMain.on('app-minimize', arg => {
+ipcMain.on('app-minimize', (event, arg) => {
   console.log('Minimizing App');
   mainWindow.minimize();
 });
 
-ipcMain.on('app-maximize', arg => {
+ipcMain.on('app-maximize', (event, arg) => {
   if (mainWindow.isMaximized()) {
     console.log('Restoring App');
     mainWindow.unmaximize();
@@ -108,7 +108,11 @@ ipcMain.on('app-maximize', arg => {
   }
 });
 
-ipcMain.on('app-close', arg => {
+ipcMain.on('app-close', (event, arg) => {
   console.log('Closing App');
   app.quit();
+});
+
+ipcMain.on('app-launched', (event, arg) => {
+  console.log(arg);
 });
